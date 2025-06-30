@@ -1,0 +1,95 @@
+<div class="register-container">
+  <h2 class="title">Create Account</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Enter your full name"
+      />
+      <div class="error" *ngIf="submitted && f['name'].errors">
+        <small *ngIf="f['name'].errors['required']">Name is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Enter your email"
+      />
+      <div class="error" *ngIf="submitted && f['email'].errors">
+        <small *ngIf="f['email'].errors['required']">Email is required.</small>
+        <small *ngIf="f['email'].errors['email']">Invalid email format.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        type="text"
+        formControlName="username"
+        placeholder="Choose a username"
+      />
+      <div class="error" *ngIf="submitted && f['username'].errors">
+        <small *ngIf="f['username'].errors['required']"
+          >Username is required.</small
+        >
+        <small *ngIf="f['username'].errors['hasSpace']"
+          >Username must not contain spaces.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        placeholder="Create a password"
+      />
+      <div class="error" *ngIf="submitted && f['password'].errors">
+        <small *ngIf="f['password'].errors['required']"
+          >Password is required.</small
+        >
+        <small *ngIf="f['password'].errors['minlength']"
+          >Minimum 8 characters.</small
+        >
+        <small *ngIf="f['password'].errors['pattern']">
+          Password must include uppercase, lowercase, digit, and special
+          character.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input
+        id="confirm-password"
+        type="password"
+        formControlName="confirmPassword"
+        placeholder="Repeat your password"
+      />
+      <div
+        class="error"
+        *ngIf="submitted && (f['confirmPassword'].errors || registerForm.errors?.['passwordMismatch'])"
+      >
+        <small *ngIf="f['confirmPassword'].errors?.['required']"
+          >Confirm password is required.</small
+        >
+        <small *ngIf="registerForm.errors?.['passwordMismatch']"
+          >Passwords do not match.</small
+        >
+      </div>
+    </div>
+
+    <button class="register-btn" type="submit">Register</button>
+  </form>
+</div>

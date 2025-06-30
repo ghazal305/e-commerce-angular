@@ -1,0 +1,27 @@
+<section class="cart-section">
+  <h2>🛒 Cart Summary</h2>
+
+  <div class="cart-item" *ngFor="let item of cartItems()">
+    <img [src]="item.thumbnail" alt="{{ item.title }}" class="item-img" />
+
+    <div class="item-info">
+      <h3>{{ item.title }}</h3>
+      <p class="price">$ {{ item.price }}</p>
+
+      <div class="quantity-control">
+        <button class="qty-btn" (click)="decreaseQuantity(item.id)">-</button>
+        <span class="qty">Quantity: {{ item.quantity }}</span>
+        <button class="qty-btn" (click)="increaseQuantity(item.id)">+</button>
+      </div>
+
+      <p class="item-total">Total: $ {{ item.price * item.quantity }}</p>
+    </div>
+
+    <button class="remove-btn" (click)="removeProduct(item.id)">🗑️</button>
+  </div>
+
+  <div class="cart-summary" *ngIf="cartItems().length > 0">
+    <p>Total Items: {{ cartItems().length }}</p>
+    <p class="total-amount">Total Amount: $ {{ totalAmount }}</p>
+  </div>
+</section>

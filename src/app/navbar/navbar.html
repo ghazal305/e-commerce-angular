@@ -1,0 +1,15 @@
+<nav>
+  <div class="container">
+    <p>product app</p>
+    <div class="btn">
+      <a routerLink="/signup" routerLinkActive="active-link">
+        signUp
+      </a>
+      <a routerLink="/login" routerLinkActive="active-link">login</a>
+      <a class="cart-btn" (click)="goToCart()">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="cart-count">{{ cartCount() }}</span>
+      </a>
+    </div>
+  </div>
+</nav>

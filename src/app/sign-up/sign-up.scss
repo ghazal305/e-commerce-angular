@@ -1,0 +1,70 @@
+$primary-color: #28a745;
+$background-color: #ffffff;
+$input-border: #ccc;
+$input-focus: #28a745;
+
+.register-container {
+  max-width: 450px;
+  margin: 80px auto;
+  padding: 2.5rem;
+  background: $background-color;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+  .title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: $primary-color;
+    font-size: 1.9rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.65rem;
+      border: 1px solid $input-border;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: $input-focus;
+        outline: none;
+      }
+    }
+  }
+
+  .register-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: $primary-color;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+.success {
+  color: green;
+}
+.styl {
+  background-color: gray;
+  width: 200px;
+  height: 200px;
+}
